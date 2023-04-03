@@ -1,22 +1,30 @@
-// Copyright 2022 The Flutter Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
+// Copyright 2023 @ TrackAuthorityMusic.com
 
 import 'package:flutter/material.dart';
+// import 'package:pickupmvp/environment.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-
-import 'src/menu.dart';
-import 'src/navigation_controls.dart';
+import 'package:flutter/services.dart';
+// import 'package:flutter_driver/driver_extension.dart';
+import 'package:go_router/go_router.dart';
+// import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_config/flutter_config.dart';
+// import 'src/menu.dart';
+// import 'src/navigation_controls.dart';
 import 'src/web_view_stack.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // Required by FlutterConfig
+  await FlutterConfig.loadEnvVariables();
+
   runApp(
     MaterialApp(
       theme: ThemeData(useMaterial3: true),
+      debugShowCheckedModeBanner: false,
       home: const WebViewApp(),
     ),
   );
 }
+
 
 class WebViewApp extends StatefulWidget {
   const WebViewApp({super.key});
@@ -25,15 +33,22 @@ class WebViewApp extends StatefulWidget {
   State<WebViewApp> createState() => _WebViewAppState();
 }
 
+
 class _WebViewAppState extends State<WebViewApp> {
   late final WebViewController controller;
+  String? _flavor;
 
   @override
   void initState() {
     super.initState();
+    const MethodChannel('flavor').invokeMethod<String>('getFlavor').then((String? flavor) {
+      setState(() {
+        _flavor = flavor;
+      });
+    });
     controller = WebViewController()
       ..loadRequest(
-        Uri.parse('https://qa.pickupmvp.com'),
+        Uri.parse(FlutterConfig.get('CLIENT_HOST')),
       );
   }
 
@@ -48,7 +63,6 @@ class _WebViewAppState extends State<WebViewApp> {
           Menu(controller: controller),
         ],
       ),
-       */
       floatingActionButton:  FloatingActionButton(
         onPressed: () {
           // Add your onPressed code here!
@@ -56,7 +70,21 @@ class _WebViewAppState extends State<WebViewApp> {
         backgroundColor: Colors.green,
         child: Menu(controller: controller),
       ),
+       */
       body: WebViewStack(controller: controller),
     );
   }
+
+  final router = GoRouter(
+    routes: [
+      GoRoute(
+        path: '/',
+        /* builder: (_, __) => Scaffold(
+          appBar: WebViewStack(controller: controller),
+        ) */
+      ),
+    ],
+  );
+
 }
+

@@ -1,0 +1,27 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "pickupmvp",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "args": ["--flavor", "pickupmvp", "--target", "lib/main.dart" ]
+    },
+    {
+      "name": "rapruler",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "args": ["--flavor", "rapruler", "--target", "lib/main.dart" ]
+    },
+    {
+      "name": "tam",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "args": ["--flavor", "tam", "--target", "lib/main.dart" ]
+    }
+  ],
+  "compounds": []
+}

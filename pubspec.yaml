@@ -1,5 +1,5 @@
 name: pickupmvp
-description: A new Flutter project.
+description: Track Authority Groups, Clubs and Apps
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -30,12 +30,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  go_router: ^6.0.9
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   webview_flutter: ^4.0.7
+  flutter_config: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -58,6 +60,12 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+  assets:
+     - .env
+     - .env.tam
+     - .env.pickupmvp
+     - .env.rapruler
 
   # To add assets to your application, add an assets section, like this:
   # assets:
