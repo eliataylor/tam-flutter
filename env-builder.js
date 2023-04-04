@@ -1,6 +1,6 @@
 const fs = require('fs');
 const url = require('url');
-const execSync = require("child_process").execSync;
+// const execSync = require("child_process").execSync;
 const appCredentials = require('../../tam-typescript/build.local.json');
 
 appCredentials.forEach((brand) => {
