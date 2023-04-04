@@ -23,7 +23,7 @@ usage() {
     echo "  -d The directory the images will be saved to. Default is the current directory."
     echo "     On iOS, icons, along with a Contents.json file, are saved in a .imageset file."
     echo "     On Android, a new directory for each density is created, if it doesn't already exist."
-    echo "  -c Optional. A color used to mask the original image. Example: blue, \"#929292\"."
+    echo "  -c Optional.f A color used to mask the original image. Example: blue, \"#929292\"."
     echo "     Default keeps the original color."
     echo "     This flag does not apply to -type app."
     echo "  -w Optional. Removes whitespace around the original image."

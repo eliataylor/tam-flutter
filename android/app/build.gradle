@@ -96,17 +96,14 @@ android {
     productFlavors {
         rapruler {
             dimension "default"
-            resValue "string", "rapruler", "The Rap Ruler"
             applicationId 'com.rapruler'
         }
         pickupmvp {
             dimension "default"
-            resValue "string", "pickupmvp", "PickupMVP"
             applicationId 'com.pickupmvp'
         }
         tam {
             dimension "default"
-            resValue "string", "tam", "Track Authority Music"
             applicationId 'com.tam'
         }
     }

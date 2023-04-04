@@ -12,7 +12,7 @@ contents.images.forEach(img => {
     let scale = parseInt(img.scale.charAt(0));
     realsize[0] = realsize[0] * scale;
     realsize[1] = realsize[1] * scale;
-    let cmd = `convert -density 1536 -background none ${src_icon} -resize ${realsize.join('x')} "${dest_dir}/${img.filename}"`
+    let cmd = `convert -density 1536 ${src_icon} -background '#211645' -alpha remove -alpha off -resize ${realsize.join('x')} "${dest_dir}/${img.filename}"`
     console.log(cmd);
     execSync(cmd);
 })
