@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter/services.dart';
 // import 'package:flutter_driver/driver_extension.dart';
-import 'package:go_router/go_router.dart';
+// import 'package:go_router/go_router.dart';
 // import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_config/flutter_config.dart';
 // import 'src/menu.dart';
@@ -48,7 +48,7 @@ class _WebViewAppState extends State<WebViewApp> {
     });
     controller = WebViewController()
       ..loadRequest(
-        Uri.parse(FlutterConfig.get('CLIENT_HOST')),
+        Uri.parse('https://'+FlutterConfig.get('CLIENT_HOST')),
       );
   }
 
@@ -75,6 +75,7 @@ class _WebViewAppState extends State<WebViewApp> {
     );
   }
 
+  /*
   final router = GoRouter(
     routes: [
       GoRoute(
@@ -85,6 +86,7 @@ class _WebViewAppState extends State<WebViewApp> {
       ),
     ],
   );
+   */
 
 }
 
