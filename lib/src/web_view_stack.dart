@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'dart:developer';
 
 class WebViewStack extends StatefulWidget {
   const WebViewStack({required this.controller, super.key});
@@ -20,6 +21,7 @@ class _WebViewStackState extends State<WebViewStack> {
   @override
   void initState() {
     super.initState();
+
     widget.controller
       ..setNavigationDelegate(
         NavigationDelegate(
@@ -30,6 +32,7 @@ class _WebViewStackState extends State<WebViewStack> {
           },
           onProgress: (progress) {
             setState(() {
+              debugger(when: loadingPercentage > 50.0);
               loadingPercentage = progress;
             });
           },
