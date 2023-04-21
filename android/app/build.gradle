@@ -71,11 +71,10 @@ android {
         versionName flutterVersionName
 
         resValue "string", "build_config_package", "com.example.pickupmvp"
-        resValue "string", "app_package_id", project.env.get("APP_PACKAGE_ID")
-        resValue "string", "app_name", project.env.get("APP_NAME")
-        resValue "string", "client_host", project.env.get("CLIENT_HOST")
-        resValue "string", "app_id", project.env.get("APP_ID")
-
+        resValue "string", "app_package_id", "com.pickupmvp"
+        resValue "string", "app_name", "Pickup MVP"
+        resValue "string", "client_host", "pickupmvp.com"
+        resValue "string", "app_id", "pickupmvp"
     }
 
     signingConfigs {
@@ -97,15 +96,33 @@ android {
     productFlavors {
         rapruler {
             dimension "default"
-            applicationId 'com.rapruler'
+            applicationId 'com.therapruler'
+
+            resValue "string", "build_config_package", "com.example.pickupmvp"
+            resValue "string", "app_package_id", "com.therapruler"
+            resValue "string", "app_name", "The Rap Ruler"
+            resValue "string", "client_host", "therapruler.com"
+            resValue "string", "app_id", "rapruler"
         }
         pickupmvp {
             dimension "default"
             applicationId 'com.pickupmvp'
+
+            resValue "string", "build_config_package", "com.example.pickupmvp"
+            resValue "string", "app_package_id", "com.pickupmvp"
+            resValue "string", "app_name", "Pickup MVP"
+            resValue "string", "client_host", "pickupmvp.com"
+            resValue "string", "app_id", "pickupmvp"
         }
         tam {
             dimension "default"
             applicationId 'com.tam'
+
+            resValue "string", "build_config_package", "com.example.pickupmvp"
+            resValue "string", "app_package_id", "com.tam"
+            resValue "string", "app_name", "Track Authority Music"
+            resValue "string", "client_host", "trackauthoritymusic.com"
+            resValue "string", "app_id", "tam"
         }
     }
 }
