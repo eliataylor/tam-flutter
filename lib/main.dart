@@ -54,6 +54,7 @@ class _WebViewAppState extends State<WebViewApp> {
     });
      */
 
+    // var myhost = 'youtube.com';
     var myhost = FlutterConfig.get('CLIENT_HOST');
     // var myhost = '127.0.0.1:1340';
     // var myhost = 'localhost.pickupmvp.com:1340';
@@ -73,6 +74,7 @@ class _WebViewAppState extends State<WebViewApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      /*
       appBar: AppBar(
         title: const Text('PickupMVP'),
         actions: [
@@ -80,6 +82,7 @@ class _WebViewAppState extends State<WebViewApp> {
           Menu(controller: controller),
         ],
       ),
+       */
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           // Add your onPressed code here!
