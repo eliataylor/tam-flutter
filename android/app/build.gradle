@@ -32,12 +32,11 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 project.ext.envConfigFiles = [
-        debug: ".env.tam",
-        release: ".env.tam",
-        "debug-rapruler": ".env.rapruler",
-        "release-rapruler": ".env.rapruler",
-        "debug-pickupmvp": ".env.pickupmvp",
-        "release-pickupmvp": ".env.pickupmvp",
+        debug: ".env",
+        release: ".env",
+        "rapruler": ".env.rapruler",
+        "pickupmvp": ".env.pickupmvp",
+        "tam": ".env.tam",
 ]
 
 apply from: project(':flutter_config').projectDir.getPath() + "/dotenv.gradle"
