@@ -23,3 +23,9 @@
    - [ ] App is in the background?
    - [ ] Device is locked?
 6. What might cause the session token in LocalStorage to be deleted from Webview Browsers?
+
+
+## Test Audio Playback:
+- Go to: https://fantasytrackball.com/group/9/playlists/8278/tracks/9504
+- Open Context Menu and click "Play TaMP3"
+- This will send a `GET` to `https://api.trackauthoritymusic.com/media/stream/4852/sample` for streamed mp3
