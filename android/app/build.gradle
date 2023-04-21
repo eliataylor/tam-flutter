@@ -68,10 +68,10 @@ android {
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion localProperties.getProperty('flutter.minSdkVersion').toInteger()
         targetSdkVersion flutter.targetSdkVersion
-        versionCode flutterVersionCode.toInteger()
+        versionCode project.env.get("VERSION_CODE").toInteger()
         versionName flutterVersionName
 
-        resValue "string", "build_config_package", project.env.get("APP_PACKAGE_ID")
+        resValue "string", "build_config_package", "com.example.pickupmvp"
         resValue "string", "app_package_id", project.env.get("APP_PACKAGE_ID")
         resValue "string", "app_name", project.env.get("APP_NAME")
         resValue "string", "client_host", project.env.get("CLIENT_HOST")
