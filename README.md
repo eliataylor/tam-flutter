@@ -23,4 +23,4 @@
    - [ ] App is in the background?
    - [ ] Device is locked?
    - [ ] Source is youtube.com?
-5. When is LocalStorage of Webview Browsers automatically? (this would force logout) 
+5. When is LocalStorage of Webview Browsers automatically deleted? (this would force logout) 
