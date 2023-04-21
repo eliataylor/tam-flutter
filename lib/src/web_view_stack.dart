@@ -4,7 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'dart:developer';
+import 'dart:developer' as developer;
 
 class WebViewStack extends StatefulWidget {
   const WebViewStack({required this.controller, super.key});
@@ -30,18 +30,21 @@ class _WebViewStackState extends State<WebViewStack> {
               loadingPercentage = 0;
             });
           },
-          onProgress: (progress) {
+          onProgress: (int progress) {
             setState(() {
-              debugger(when: loadingPercentage > 50.0);
               loadingPercentage = progress;
             });
           },
-          onPageFinished: (url) {
+          onPageFinished: (String url) {
             setState(() {
+              developer.log('finished loading ' + url);
               loadingPercentage = 100;
             });
           },
-          onNavigationRequest: (navigation) {
+          onWebResourceError: (WebResourceError error) {
+            developer.log('web view error!!! ');
+          },
+          onNavigationRequest: (NavigationRequest navigation) {
             final host = Uri.parse(navigation.url).host;
             if (!host.contains('youtube.com') && !host.contains('pickupmvp.com') && !host.contains('trackauthoritymusic.com')) {
               ScaffoldMessenger.of(context).showSnackBar(
@@ -71,13 +74,13 @@ class _WebViewStackState extends State<WebViewStack> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        WebViewWidget(
-          controller: widget.controller,
-        ),
         if (loadingPercentage < 100)
           LinearProgressIndicator(
             value: loadingPercentage / 100.0,
           ),
+        WebViewWidget(
+          controller: widget.controller,
+        ),
       ],
     );
   }
