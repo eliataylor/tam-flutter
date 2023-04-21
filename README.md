@@ -13,15 +13,13 @@
 
 
 #### QUESTIONS:
-1. **What can the web app not do inside of WebView?**
-2. Can Flutter Deep Link to open and play from *Youtube Music*? 
-3. Can Webview browser audio playback continue when:
-    - [ ] App is in the background?
+1. **What can the WebApp *not* do while running inside of WebView browser?** 
+2. What are the benefits of [flutter_inappwebview](https://github.com/pichillilorenzo/flutter_inappwebview)?
+3. Can Flutter open and play youtube videos using the installed *Youtube Music* app? 
+4. Can Webview browser Audio play when:
+    - [ ] App has been sent to the background?
     - [ ] Device is locked?
-    - [ ] Source is youtube.com?
-4. Can native audio playback continue when:
+5. Can native audio playback continue when:
    - [ ] App is in the background?
    - [ ] Device is locked?
-   - [ ] Source is youtube.com?
-5. When is LocalStorage of Webview Browsers automatically deleted? (this would force logout)
-6. What are the benefits of [flutter_inappwebview](https://github.com/pichillilorenzo/flutter_inappwebview)?
+6. What might cause the session token in LocalStorage to be deleted from Webview Browsers?
