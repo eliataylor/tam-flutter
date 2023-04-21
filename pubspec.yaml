@@ -39,6 +39,7 @@ dependencies:
   webview_flutter: ^4.0.7
   flutter_config: ^2.0.0
   flutter_dotenv: ^5.0.2
+  app_links: ^3.4.2
 
 dev_dependencies:
   flutter_test:
