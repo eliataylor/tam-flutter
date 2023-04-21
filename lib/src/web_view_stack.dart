@@ -41,7 +41,7 @@ class _WebViewStackState extends State<WebViewStack> {
               loadingPercentage = 100;
             });
           },
-          /* onNavigationRequest: (navigation) {
+          onNavigationRequest: (navigation) {
             final host = Uri.parse(navigation.url).host;
             if (!host.contains('youtube.com') && !host.contains('pickupmvp.com') && !host.contains('trackauthoritymusic.com')) {
               ScaffoldMessenger.of(context).showSnackBar(
@@ -54,7 +54,7 @@ class _WebViewStackState extends State<WebViewStack> {
               return NavigationDecision.prevent;
             }
             return NavigationDecision.navigate;
-          },*/
+          },
         ),
       )
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
