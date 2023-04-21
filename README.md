@@ -26,13 +26,13 @@
 
 
 ## Test Audio Playback:
-- Go to: [/group/9/playlists/8278/tracks/9504](https://pickupmvp.com/group/9/playlists/8278/tracks/9504)
-- Open Context Menu and click **"Play TaMP3"** 
+#### Go to: [/group/9/playlists/8278/tracks/9504](https://pickupmvp.com/group/9/playlists/8278/tracks/9504)
+1.  Open Context Menu and click **"Play TaMP3"** 
 - This will send a `GET` to `https://api.trackauthoritymusic.com/media/stream/4852/sample` for streamed mp3 and the music should start.
 - [ ] Does the music continue when you go to another app?
 - [ ] Does the music continue when you lock the phone?
 ----
-- Open Context Menu and click **"Play Youtube"**
+2.  Open Context Menu and click **"Play Youtube"**
 - This will load `https://www.youtube.com/watch?v=R4GLAKEjU4w` using ReactPlayer's youtube sdk 
 - [ ] Does the music continue when you go to another app?
 - [ ] Does the music continue when you lock the phone?
