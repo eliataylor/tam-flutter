@@ -54,8 +54,8 @@ class _WebViewAppState extends State<WebViewApp> {
     });
      */
 
-    var myhost = 'youtube.com';
-    // var myhost = FlutterConfig.get('CLIENT_HOST');
+    // var myhost = 'youtube.com';
+    var myhost = FlutterConfig.get('CLIENT_HOST');
     // var myhost = '127.0.0.1:1340';
     // var myhost = 'localhost.pickupmvp.com:1340';
     var initUrl = 'https://' + myhost + '?appOS=' + Platform.operatingSystem;
