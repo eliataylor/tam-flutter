@@ -108,7 +108,6 @@ class _WebViewAppState extends State<WebViewApp> {
           Menu(controller: controller),
         ],
       ),
-       */
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           // Add your onPressed code here!
@@ -116,6 +115,7 @@ class _WebViewAppState extends State<WebViewApp> {
         backgroundColor: Colors.green,
         child: Menu(controller: controller),
       ),
+       */
       body: WebViewStack(controller: controller),
     );
   }
