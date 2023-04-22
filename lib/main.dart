@@ -54,10 +54,18 @@ class _WebViewAppState extends State<WebViewApp> {
     });
      */
     var myhost = FlutterConfig.get('CLIENT_HOST');
+    var appID = FlutterConfig.get("APP_ID");
     var initUrl = 'https://' + myhost;
 
     // var myhost = 'youtube.com';
     _appLinks.allUriLinkStream.listen((uri) {
+      if (uri.toString().contains("app://$appID")) {
+        uri = Uri.parse(uri
+            .toString()
+            .replaceAll("app://$appID", 'https://' + myhost)
+            .replaceFirst("?", ""));
+      }
+
       initUrl = uri.toString();
 
       initUrl += '?appOS=' + Platform.operatingSystem;
