@@ -1,23 +1,23 @@
 // Copyright 2023 @ TrackAuthorityMusic.com
 
+import 'dart:developer' as developer;
+import 'dart:io' show Platform;
+import 'dart:ui' as ui;
+
+import 'package:app_links/app_links.dart';
 import 'package:flutter/material.dart';
-
-// import 'package:pickupmvp/environment.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-import 'package:flutter/services.dart';
-
 // import 'package:flutter_driver/driver_extension.dart';
 // import 'package:go_router/go_router.dart';
 // import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_config/flutter_config.dart';
-import 'src/menu.dart';
+// import 'package:pickupmvp/environment.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
+import 'src/menu.dart';
 // import 'src/navigation_controls.dart';
 import 'src/web_view_stack.dart';
-import 'dart:io' show Platform;
-import 'dart:ui' as ui;
-import 'dart:convert';
-import 'dart:developer' as developer;
+
+final _appLinks = AppLinks();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); // Required by FlutterConfig
@@ -53,14 +53,40 @@ class _WebViewAppState extends State<WebViewApp> {
       });
     });
      */
+    var myhost = FlutterConfig.get('CLIENT_HOST');
+    var appID = FlutterConfig.get("APP_ID");
+    var initUrl = 'https://' + myhost;
 
     // var myhost = 'youtube.com';
-    var myhost = FlutterConfig.get('CLIENT_HOST');
+    _appLinks.allUriLinkStream.listen((uri) {
+      if (uri.toString().contains("app://$appID")) {
+        uri = Uri.parse(uri
+            .toString()
+            .replaceAll("app://$appID", 'https://' + myhost)
+            .replaceFirst("?", ""));
+      }
+
+      initUrl = uri.toString();
+
+      initUrl += '?appOS=' + Platform.operatingSystem;
+      initUrl += '&paddingTop=' +
+          MediaQueryData.fromWindow(ui.window).padding.top.toString();
+      initUrl += '&paddingBottom=' +
+          MediaQueryData.fromWindow(ui.window).padding.bottom.toString();
+
+      print('loading url 2: ' + initUrl);
+      developer.log(initUrl);
+
+      controller.loadRequest(Uri.parse(initUrl));
+    });
+
     // var myhost = '127.0.0.1:1340';
     // var myhost = 'localhost.pickupmvp.com:1340';
-    var initUrl = 'https://' + myhost + '?appOS=' + Platform.operatingSystem;
-    initUrl += '&paddingTop=' + MediaQueryData.fromWindow(ui.window).padding.top.toString();
-    initUrl += '&paddingBottom=' + MediaQueryData.fromWindow(ui.window).padding.bottom.toString();
+    initUrl += '?appOS=' + Platform.operatingSystem;
+    initUrl += '&paddingTop=' +
+        MediaQueryData.fromWindow(ui.window).padding.top.toString();
+    initUrl += '&paddingBottom=' +
+        MediaQueryData.fromWindow(ui.window).padding.bottom.toString();
 
     print('loading url 2: ' + initUrl);
     developer.log(initUrl);
