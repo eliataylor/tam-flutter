@@ -46,7 +46,11 @@ class _WebViewStackState extends State<WebViewStack> {
           },
           onNavigationRequest: (NavigationRequest navigation) {
             final host = Uri.parse(navigation.url).host;
-            if (!host.contains('therapruler.com') &&
+            if (!host.contains('youtube.com') &&
+                !host.contains('therapruler.com') &&
+                !host.contains('fantasytrackball.com') &&
+                !host.contains('rsoundtrack.com') &&
+                !host.contains('giftofmusic.app') &&
                 !host.contains('pickupmvp.com') &&
                 !host.contains('trackauthoritymusic.com')) {
               ScaffoldMessenger.of(context).showSnackBar(
