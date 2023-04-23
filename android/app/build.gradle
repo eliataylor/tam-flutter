@@ -45,6 +45,7 @@ apply from: project(':flutter_config').projectDir.getPath() + "/dotenv.gradle"
 android {
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
+    namespace project.env.get("APP_PACKAGE_ID")
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
