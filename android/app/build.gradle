@@ -37,7 +37,7 @@ project.ext.envConfigFiles = [
         release: ".env",
         "rapruler": ".env.rapruler",
         "pickupmvp": ".env.pickupmvp",
-        "tam": ".env.tam",
+        "trackauthoritymusic": ".env.tam",
 ]
 
 apply from: project(':flutter_config').projectDir.getPath() + "/dotenv.gradle"
