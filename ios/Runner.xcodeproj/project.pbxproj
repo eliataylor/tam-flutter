@@ -38,9 +38,9 @@
 		2389E5A929F2EF5100C3AA72 /* RunnerRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RunnerRelease.entitlements; sourceTree = "<group>"; };
 		2389E5AA29F2EF5500C3AA72 /* RunnerProfile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RunnerProfile.entitlements; sourceTree = "<group>"; };
 		2389E5BD29F2F20500C3AA72 /* RunnerDebug-rapruler.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RunnerDebug-rapruler.entitlements"; sourceTree = "<group>"; };
-		2389E5BE29F2F22200C3AA72 /* RunnerDebug-tam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RunnerDebug-tam.entitlements"; sourceTree = "<group>"; };
-		2389E5BF29F2F22E00C3AA72 /* RunnerRelease-tam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RunnerRelease-tam.entitlements"; sourceTree = "<group>"; };
-		2389E5C029F2F23A00C3AA72 /* RunnerProfile-tam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RunnerProfile-tam.entitlements"; sourceTree = "<group>"; };
+		2389E5BE29F2F22200C3AA72 /* RunnerDebug-trackmusicauthority.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RunnerDebug-trackmusicauthority.entitlements"; sourceTree = "<group>"; };
+		2389E5BF29F2F22E00C3AA72 /* RunnerRelease-trackmusicauthority.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RunnerRelease-trackmusicauthority.entitlements"; sourceTree = "<group>"; };
+		2389E5C029F2F23A00C3AA72 /* RunnerProfile-trackmusicauthority.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RunnerProfile-trackmusicauthority.entitlements"; sourceTree = "<group>"; };
 		2389E5C129F2F25700C3AA72 /* RunnerRelease-rapruler.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RunnerRelease-rapruler.entitlements"; sourceTree = "<group>"; };
 		2389E5C229F2F3E500C3AA72 /* RunnerDebug-pickupmvp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RunnerDebug-pickupmvp.entitlements"; sourceTree = "<group>"; };
 		279D91992084A9DC13FE0579 /* Pods-Runner.profile-rapruler.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile-rapruler.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile-rapruler.xcconfig"; sourceTree = "<group>"; };
@@ -48,6 +48,7 @@
 		2DC75288DD858C85F968F954 /* Pods-Runner.profile-pickupmvp.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile-pickupmvp.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile-pickupmvp.xcconfig"; sourceTree = "<group>"; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
 		3C9B7394AADA9E97CF74C707 /* Pods-Runner.release-rapruler.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release-rapruler.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release-rapruler.xcconfig"; sourceTree = "<group>"; };
+		6D5F9D108C8BB96CF22738E4 /* Pods-Runner.release-trackauthoritymusic.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release-trackauthoritymusic.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release-trackauthoritymusic.xcconfig"; sourceTree = "<group>"; };
 		74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
 		74858FAE1ED2DC5600515810 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
@@ -59,10 +60,12 @@
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A04BAB45F63971096860E855 /* Pods-Runner.profile-trackauthoritymusic.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile-trackauthoritymusic.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile-trackauthoritymusic.xcconfig"; sourceTree = "<group>"; };
 		A6FC663BF2065B4C5D3ECD11 /* Pods-Runner.profile-tam.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile-tam.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile-tam.xcconfig"; sourceTree = "<group>"; };
 		AED06DEE237B98D3547D92BD /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C508E07E4B192A004B55AC2B /* Pods-Runner.release-tam.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release-tam.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release-tam.xcconfig"; sourceTree = "<group>"; };
 		C5A69EC57A5D393BA0213CA9 /* Pods-Runner.debug-tam.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug-tam.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug-tam.xcconfig"; sourceTree = "<group>"; };
+		DAD4CBE8DB4E069D477D57E4 /* Pods-Runner.debug-trackauthoritymusic.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug-trackauthoritymusic.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug-trackauthoritymusic.xcconfig"; sourceTree = "<group>"; };
 		EB88B1A95B14F0D236A21A07 /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
 		FA1E89176413570D322EF3CE /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
 		FD37BEAA2661B0ED21FB3AB6 /* Pods-Runner.release-pickupmvp.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release-pickupmvp.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release-pickupmvp.xcconfig"; sourceTree = "<group>"; };
@@ -123,9 +126,9 @@
 			children = (
 				2389E5C229F2F3E500C3AA72 /* RunnerDebug-pickupmvp.entitlements */,
 				2389E5C129F2F25700C3AA72 /* RunnerRelease-rapruler.entitlements */,
-				2389E5C029F2F23A00C3AA72 /* RunnerProfile-tam.entitlements */,
-				2389E5BF29F2F22E00C3AA72 /* RunnerRelease-tam.entitlements */,
-				2389E5BE29F2F22200C3AA72 /* RunnerDebug-tam.entitlements */,
+				2389E5C029F2F23A00C3AA72 /* RunnerProfile-trackmusicauthority.entitlements */,
+				2389E5BF29F2F22E00C3AA72 /* RunnerRelease-trackmusicauthority.entitlements */,
+				2389E5BE29F2F22200C3AA72 /* RunnerDebug-trackmusicauthority.entitlements */,
 				2389E5BD29F2F20500C3AA72 /* RunnerDebug-rapruler.entitlements */,
 				2389E5AA29F2EF5500C3AA72 /* RunnerProfile.entitlements */,
 				2389E5A929F2EF5100C3AA72 /* RunnerRelease.entitlements */,
@@ -158,6 +161,9 @@
 				C508E07E4B192A004B55AC2B /* Pods-Runner.release-tam.xcconfig */,
 				2DC75288DD858C85F968F954 /* Pods-Runner.profile-pickupmvp.xcconfig */,
 				A6FC663BF2065B4C5D3ECD11 /* Pods-Runner.profile-tam.xcconfig */,
+				DAD4CBE8DB4E069D477D57E4 /* Pods-Runner.debug-trackauthoritymusic.xcconfig */,
+				6D5F9D108C8BB96CF22738E4 /* Pods-Runner.release-trackauthoritymusic.xcconfig */,
+				A04BAB45F63971096860E855 /* Pods-Runner.profile-trackauthoritymusic.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -169,8 +175,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Runner" */;
 			buildPhases = (
-				23A4352629F4E1980076DB1A /* Setup Firebase Environment GoogleService-Info.plist */,
 				9C1D2DCC13F00FDB5E25E3CB /* [CP] Check Pods Manifest.lock */,
+				23A4352629F4E1980076DB1A /* Setup Firebase Environment GoogleService-Info.plist */,
 				9740EEB61CF901F6004384FC /* Run Script */,
 				97C146EA1CF9000F007C117D /* Sources */,
 				97C146EB1CF9000F007C117D /* Frameworks */,
@@ -252,7 +258,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Name of the resource we're selectively copying\nGOOGLESERVICE_INFO_PLIST=GoogleService-Info.plist\n\n# Get references to dev and prod versions of the GoogleService-Info.plist\n# NOTE: These should only live on the file system and should NOT be part of the target (since we'll be adding them to the target manually)\nGOOGLESERVICE_INFO_PICKUPMVP=${PROJECT_DIR}/${TARGET_NAME}/Firebase/PickupMVP/${GOOGLESERVICE_INFO_PLIST}\nGOOGLESERVICE_INFO_RAPRULER=${PROJECT_DIR}/${TARGET_NAME}/Firebase/RapRuler/${GOOGLESERVICE_INFO_PLIST}\nGOOGLESERVICE_INFO_TRACKAUTHORITYMUSIC=${PROJECT_DIR}/${TARGET_NAME}/Firebase/TrackAuthorityMusic/${GOOGLESERVICE_INFO_PLIST}\n\n# Make sure the dev version of GoogleService-Info.plist exists\necho \"Looking for ${GOOGLESERVICE_INFO_PLIST} in ${GOOGLESERVICE_INFO_PICKUPMVP}\"\nif [ ! -f $GOOGLESERVICE_INFO_PICKUPMVP ]\nthen\n    echo \"No PickupMVP GoogleService-Info.plist found. Please ensure it's in the proper directory.\"\n    exit 1\nfi\n\n# Make sure the prod version of GoogleService-Info.plist exists\necho \"Looking for ${GOOGLESERVICE_INFO_PLIST} in ${GOOGLESERVICE_INFO_RAPRULER}\"\nif [ ! -f $GOOGLESERVICE_INFO_RAPRULER ]\nthen\n    echo \"No RapRuler GoogleService-Info.plist found. Please ensure it's in the proper directory.\"\n    exit 1\nfi\n\n# Make sure the prod version of GoogleService-Info.plist exists\necho \"Looking for ${GOOGLESERVICE_INFO_PLIST} in ${GOOGLESERVICE_INFO_TRACKAUTHORITYMUSIC}\"\nif [ ! -f $GOOGLESERVICE_INFO_TRACKAUTHORITYMUSIC ]\nthen\n    echo \"No TrackAuthorityMusic GoogleService-Info.plist found. Please ensure it's in the proper directory.\"\n    exit 1\nfi\n\n# Get a reference to the destination location for the GoogleService-Info.plist\nPLIST_DESTINATION=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\necho \"Will copy ${GOOGLESERVICE_INFO_PLIST} to final destination: ${PLIST_DESTINATION}\"\n\n# Copy over the prod GoogleService-Info.plist for Release builds\nif [ \"${CONFIGURATION}\" == \"Debug-pickupmvp\" ] || [ \"${CONFIGURATION}\" == \"Release-pickupmvp\" ] || [ \"${CONFIGURATION}\" == \"Profile-pickupmvp\" ]\nthen\n    echo \"Using ${GOOGLESERVICE_INFO_PICKUPMVP}\"\n    cp \"${GOOGLESERVICE_INFO_PICKUPMVP}\" \"${PLIST_DESTINATION}\"\nelif [ \"${CONFIGURATION}\" == \"Debug-rapruler\" ] || [ \"${CONFIGURATION}\" == \"Release-rapruler\" ] || [ \"${CONFIGURATION}\" == \"Profile-rapruler\" ]\nthen\n    echo \"Using ${GOOGLESERVICE_INFO_RAPRULER}\"\n    cp \"${GOOGLESERVICE_INFO_RAPRULER}\" \"${PLIST_DESTINATION}\"\nelif [ \"${CONFIGURATION}\" == \"Debug-tam\" ] || [ \"${CONFIGURATION}\" == \"Release-tam\" ] || [ \"${CONFIGURATION}\" == \"Profile-tam\" ]\nthen\n    echo \"Using ${GOOGLESERVICE_INFO_TRACKAUTHORITYMUSIC}\"\n    cp \"${GOOGLESERVICE_INFO_TRACKAUTHORITYMUSIC}\" \"${PLIST_DESTINATION}\"\nelse\n    echo \"Using ${GOOGLESERVICE_INFO_PICKUPMVP}\"\n    cp \"${GOOGLESERVICE_INFO_PICKUPMVP}\" \"${PLIST_DESTINATION}\"\nfi\n";
+			shellScript = "# Name of the resource we're selectively copying\nGOOGLESERVICE_INFO_PLIST=GoogleService-Info.plist\n\n# Get references to dev and prod versions of the GoogleService-Info.plist\n# NOTE: These should only live on the file system and should NOT be part of the target (since we'll be adding them to the target manually)\nGOOGLESERVICE_INFO_PICKUPMVP=${PROJECT_DIR}/${TARGET_NAME}/Firebase/PickupMVP/${GOOGLESERVICE_INFO_PLIST}\nGOOGLESERVICE_INFO_RAPRULER=${PROJECT_DIR}/${TARGET_NAME}/Firebase/RapRuler/${GOOGLESERVICE_INFO_PLIST}\nGOOGLESERVICE_INFO_TRACKAUTHORITYMUSIC=${PROJECT_DIR}/${TARGET_NAME}/Firebase/TrackAuthorityMusic/${GOOGLESERVICE_INFO_PLIST}\n\n# Make sure the dev version of GoogleService-Info.plist exists\necho \"Looking for ${GOOGLESERVICE_INFO_PLIST} in ${GOOGLESERVICE_INFO_PICKUPMVP}\"\nif [ ! -f $GOOGLESERVICE_INFO_PICKUPMVP ]\nthen\n    echo \"No PickupMVP GoogleService-Info.plist found. Please ensure it's in the proper directory.\"\n    exit 1\nfi\n\n# Make sure the prod version of GoogleService-Info.plist exists\necho \"Looking for ${GOOGLESERVICE_INFO_PLIST} in ${GOOGLESERVICE_INFO_RAPRULER}\"\nif [ ! -f $GOOGLESERVICE_INFO_RAPRULER ]\nthen\n    echo \"No RapRuler GoogleService-Info.plist found. Please ensure it's in the proper directory.\"\n    exit 1\nfi\n\n# Make sure the prod version of GoogleService-Info.plist exists\necho \"Looking for ${GOOGLESERVICE_INFO_PLIST} in ${GOOGLESERVICE_INFO_TRACKAUTHORITYMUSIC}\"\nif [ ! -f $GOOGLESERVICE_INFO_TRACKAUTHORITYMUSIC ]\nthen\n    echo \"No TrackAuthorityMusic GoogleService-Info.plist found. Please ensure it's in the proper directory.\"\n    exit 1\nfi\n\n# Get a reference to the destination location for the GoogleService-Info.plist\nPLIST_DESTINATION=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\necho \"Will copy ${GOOGLESERVICE_INFO_PLIST} to final destination: ${PLIST_DESTINATION}\"\n\n# Copy over the prod GoogleService-Info.plist for Release builds\nif [ \"${CONFIGURATION}\" == \"Debug-pickupmvp\" ] || [ \"${CONFIGURATION}\" == \"Release-pickupmvp\" ] || [ \"${CONFIGURATION}\" == \"Profile-pickupmvp\" ]\nthen\n    echo \"Using ${GOOGLESERVICE_INFO_PICKUPMVP}\"\n    cp \"${GOOGLESERVICE_INFO_PICKUPMVP}\" \"${PLIST_DESTINATION}\"\nelif [ \"${CONFIGURATION}\" == \"Debug-rapruler\" ] || [ \"${CONFIGURATION}\" == \"Release-rapruler\" ] || [ \"${CONFIGURATION}\" == \"Profile-rapruler\" ]\nthen\n    echo \"Using ${GOOGLESERVICE_INFO_RAPRULER}\"\n    cp \"${GOOGLESERVICE_INFO_RAPRULER}\" \"${PLIST_DESTINATION}\"\nelif [ \"${CONFIGURATION}\" == \"Debug-trackauthoritymusic\" ] || [ \"${CONFIGURATION}\" == \"Release-trackauthoritymusic\" ] || [ \"${CONFIGURATION}\" == \"Profile-trackauthoritymusic\" ]\nthen\n    echo \"Using ${GOOGLESERVICE_INFO_TRACKAUTHORITYMUSIC}\"\n    cp \"${GOOGLESERVICE_INFO_TRACKAUTHORITYMUSIC}\" \"${PLIST_DESTINATION}\"\nelse\n    echo \"Using ${GOOGLESERVICE_INFO_PICKUPMVP}\"\n    cp \"${GOOGLESERVICE_INFO_PICKUPMVP}\" \"${PLIST_DESTINATION}\"\nfi\n";
 		};
 		3B06AD1E1E4923F5004D2608 /* Thin Binary */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -357,7 +363,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		2389E5AB29F2F13C00C3AA72 /* Debug-tam */ = {
+		2389E5AB29F2F13C00C3AA72 /* Debug-trackauthoritymusic */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -411,9 +417,9 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = "Debug-tam";
+			name = "Debug-trackauthoritymusic";
 		};
-		2389E5AC29F2F13C00C3AA72 /* Debug-tam */ = {
+		2389E5AC29F2F13C00C3AA72 /* Debug-trackauthoritymusic */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9740EEB21CF90195004384FC /* Debug.xcconfig */;
 			buildSettings = {
@@ -430,16 +436,16 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tam;
+				PRODUCT_BUNDLE_IDENTIFIER = com.trackauthoritymusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
-			name = "Debug-tam";
+			name = "Debug-trackauthoritymusic";
 		};
-		2389E5AD29F2F16100C3AA72 /* Release-tam */ = {
+		2389E5AD29F2F16100C3AA72 /* Release-trackauthoritymusic */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -489,9 +495,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = "Release-tam";
+			name = "Release-trackauthoritymusic";
 		};
-		2389E5AE29F2F16100C3AA72 /* Release-tam */ = {
+		2389E5AE29F2F16100C3AA72 /* Release-trackauthoritymusic */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
@@ -508,15 +514,15 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tam;
+				PRODUCT_BUNDLE_IDENTIFIER = com.trackauthoritymusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
-			name = "Release-tam";
+			name = "Release-trackauthoritymusic";
 		};
-		2389E5AF29F2F16400C3AA72 /* Profile-tam */ = {
+		2389E5AF29F2F16400C3AA72 /* Profile-trackauthoritymusic */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -564,9 +570,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = "Profile-tam";
+			name = "Profile-trackauthoritymusic";
 		};
-		2389E5B029F2F16400C3AA72 /* Profile-tam */ = {
+		2389E5B029F2F16400C3AA72 /* Profile-trackauthoritymusic */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
@@ -583,13 +589,13 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tam;
+				PRODUCT_BUNDLE_IDENTIFIER = com.trackauthoritymusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
-			name = "Profile-tam";
+			name = "Profile-trackauthoritymusic";
 		};
 		2389E5B129F2F17C00C3AA72 /* Debug-rapruler */ = {
 			isa = XCBuildConfiguration;
@@ -1302,15 +1308,15 @@
 				97C147031CF9000F007C117D /* Debug */,
 				2389E5B329F2F17E00C3AA72 /* Debug-pickupmvp */,
 				2389E5B129F2F17C00C3AA72 /* Debug-rapruler */,
-				2389E5AB29F2F13C00C3AA72 /* Debug-tam */,
+				2389E5AB29F2F13C00C3AA72 /* Debug-trackauthoritymusic */,
 				97C147041CF9000F007C117D /* Release */,
 				2389E5B529F2F19600C3AA72 /* Release-pickupmvp */,
 				2389E5B729F2F19900C3AA72 /* Release-rapruler */,
-				2389E5AD29F2F16100C3AA72 /* Release-tam */,
+				2389E5AD29F2F16100C3AA72 /* Release-trackauthoritymusic */,
 				249021D3217E4FDB00AE95B9 /* Profile */,
 				2389E5B929F2F19D00C3AA72 /* Profile-pickupmvp */,
 				2389E5BB29F2F19F00C3AA72 /* Profile-rapruler */,
-				2389E5AF29F2F16400C3AA72 /* Profile-tam */,
+				2389E5AF29F2F16400C3AA72 /* Profile-trackauthoritymusic */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1321,15 +1327,15 @@
 				97C147061CF9000F007C117D /* Debug */,
 				2389E5B429F2F17E00C3AA72 /* Debug-pickupmvp */,
 				2389E5B229F2F17C00C3AA72 /* Debug-rapruler */,
-				2389E5AC29F2F13C00C3AA72 /* Debug-tam */,
+				2389E5AC29F2F13C00C3AA72 /* Debug-trackauthoritymusic */,
 				97C147071CF9000F007C117D /* Release */,
 				2389E5B629F2F19600C3AA72 /* Release-pickupmvp */,
 				2389E5B829F2F19900C3AA72 /* Release-rapruler */,
-				2389E5AE29F2F16100C3AA72 /* Release-tam */,
+				2389E5AE29F2F16100C3AA72 /* Release-trackauthoritymusic */,
 				249021D4217E4FDB00AE95B9 /* Profile */,
 				2389E5BA29F2F19D00C3AA72 /* Profile-pickupmvp */,
 				2389E5BC29F2F19F00C3AA72 /* Profile-rapruler */,
-				2389E5B029F2F16400C3AA72 /* Profile-tam */,
+				2389E5B029F2F16400C3AA72 /* Profile-trackauthoritymusic */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
