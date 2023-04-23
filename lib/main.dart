@@ -199,6 +199,9 @@ class _WebViewAppState extends State<WebViewApp> {
       });
     });
      */
+    const String flavor = String.fromEnvironment('app.flavor');
+    developer.log('running flavor: ' + flavor);
+
     var myhost = FlutterConfig.get('CLIENT_HOST');
     // var myhost = '127.0.0.1:1340';
     // var myhost = 'localhost.pickupmvp.com:1340';
