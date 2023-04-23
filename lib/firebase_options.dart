@@ -52,7 +52,7 @@ class DefaultFirebaseOptions {
 
   static FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyB332_pe6xJNcLXIU9i4X6s-RXvMUFSdeM',
-    appId: FlutterConfig.get("FIREBASE_APP_ID"),
+    appId: FlutterConfig.get("ANDROID_APP_ID"),
     messagingSenderId: '364436864658',
     projectId: 'trackauthoritymusic',
     databaseURL: 'https://trackauthoritymusic.firebaseio.com',
