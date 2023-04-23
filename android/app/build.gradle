@@ -103,7 +103,7 @@ android {
             dimension "default"
             applicationId 'com.pickupmvp'
         }
-        tam {
+        trackauthoritymusic {
             dimension "default"
             applicationId 'com.trackauthoritymusic'
         }
