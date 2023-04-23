@@ -20,6 +20,16 @@
 - In the custom data, add key as "url" and value with the value you want the user to be redirected to.
 - Click Review and Publish.
 
+## Test Push Notifications:
+- Get simulator device id: `xcrun simctl list 'devices' 'booted'`
+- `xcrun simctl push A1A523A9-F395-4BB0-8372-3D266F2E1224 com.pickupmvp [path to APS cert]`
+
+## Test Universal (Deep) Links:
+- Group Invite, Lands on Group Homepage: `xcrun simctl openurl booted 'https://fantasytrackball.com/otp/group_invite/accept/1897/437b56b295a1a4071a958d27da60df61/9?q=/group/9/details'` 
+- Group Invite, Lands on Rewards Dashboard: `xcrun simctl openurl booted 'https://pickupmvp.com/otp/group_invite/accept/1903/b1dc5133e71985d8c0671a291d6b9966/61?q=/group/61/rewards'`
+- Forgot Password: `xcrun simctl openurl booted 'https://pickupmvp.com/otp/account_otp/accept/1911/a8136bca890667fa98dc0f5e2a0d0546'`
+
+
 #### QUESTIONS:
 1. **What can the WebApp *not* do while running inside of WebView browser?** 
 2. What are the benefits of [flutter_inappwebview](https://github.com/pichillilorenzo/flutter_inappwebview)?
