@@ -12,7 +12,12 @@ appCredentials.forEach((brand) => {
 APP_ID=${brand.env.REACT_APP_TACLIENT_DIR}
 CLIENT_HOST=${myurl.host}
 TAM_GID=${brand.gid}
-APP_NAME=${brand.env.REACT_APP_NAME}`
+APP_NAME=${brand.env.REACT_APP_NAME}
+VERSION_CODE=2
+ANDROID_APP_ID=1234
+IOS_APP_ID=1234
+ANDROID_CLIENT_ID=1234
+IOS_CLIENT_ID=1234`
 
     fs.writeFileSync(`.env.${brand.env.REACT_APP_TACLIENT_DIR}`, env, 'utf8');
 
