@@ -54,3 +54,13 @@
 - This will load `https://www.youtube.com/watch?v=R4GLAKEjU4w` using ReactPlayer's youtube sdk 
 - [ ] Does the music continue when you go to another app?
 - [ ] Does the music continue when you lock the phone?
+
+
+## To Add a Brand For Android:
+- add config in `project.ext.envConfigFiles` of build.gradle
+- from /android folder: `ENVFILE=.env.[brand] ./gradlew assembleDebug`
+- create dedication /app/src/[brand]/res folder with icons
+- 
+## To Add a Brand For ioS:
+- create Schema from xCode, duplicate a config and change the env file brand. 
+- change pre-run script to use new env file
