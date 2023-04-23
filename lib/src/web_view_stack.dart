@@ -46,6 +46,7 @@ class _WebViewStackState extends State<WebViewStack> {
           },
           onNavigationRequest: (NavigationRequest navigation) {
             final host = Uri.parse(navigation.url).host;
+            developer.log('navigating host ' + host);
             if (!host.contains('youtube.com') &&
                 !host.contains('therapruler.com') &&
                 !host.contains('fantasytrackball.com') &&

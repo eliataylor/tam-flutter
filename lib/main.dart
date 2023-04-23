@@ -5,21 +5,14 @@ import 'dart:io' show Platform;
 import 'dart:ui' as ui;
 
 import 'package:TrackAuthorityMusic/firebase_options.dart';
-import 'package:TrackAuthorityMusic/src/menu.dart';
 import 'package:app_links/app_links.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_driver/driver_extension.dart';
-// import 'package:go_router/go_router.dart';
-// import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_config/flutter_config.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-// import 'package:pickupmvp/environment.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-
-// import 'src/navigation_controls.dart';
 import 'src/web_view_stack.dart';
 
 final _appLinks = AppLinks();
@@ -34,7 +27,7 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   showFlutterNotification(message);
   // If you're going to use other Firebase services in the background, such as Firestore,
   // make sure you call `initializeApp` before using other Firebase services.
-  print('Handling a background message ${message.messageId}');
+  developer.log('Handling a background message ${message.messageId}');
 }
 
 void main() async {
@@ -138,7 +131,7 @@ class _WebViewAppState extends State<WebViewApp> {
   // String? _flavor;
 
   void setToken(String? token) {
-    print('FCM Token: $token');
+    developer.log('FCM Token: $token');
     setState(() {
       _token = token;
     });
@@ -207,11 +200,15 @@ class _WebViewAppState extends State<WebViewApp> {
     });
      */
     var myhost = FlutterConfig.get('CLIENT_HOST');
+    // var myhost = '127.0.0.1:1340';
+    // var myhost = 'localhost.pickupmvp.com:1340';
     var appID = FlutterConfig.get("APP_ID");
     var initUrl = 'https://' + myhost;
+    initUrl = buildInitUrl(initUrl);
+    developer.log('loading startup url: ' + initUrl);
 
-    // var myhost = 'youtube.com';
     _appLinks.allUriLinkStream.listen((uri) {
+      developer.log('allUriLinkStream ' + uri.toString());
       if (uri.toString().contains("app://$appID")) {
         uri = Uri.parse(uri
             .toString()
@@ -220,29 +217,10 @@ class _WebViewAppState extends State<WebViewApp> {
       }
 
       initUrl = uri.toString();
-
-      initUrl += '?appOS=' + Platform.operatingSystem;
-      initUrl += '&paddingTop=' +
-          MediaQueryData.fromWindow(ui.window).padding.top.toString();
-      initUrl += '&paddingBottom=' +
-          MediaQueryData.fromWindow(ui.window).padding.bottom.toString();
-
-      print('loading url 2: ' + initUrl);
-      developer.log(initUrl);
+      initUrl = buildInitUrl(initUrl);
 
       controller.loadRequest(Uri.parse(initUrl));
     });
-
-    // var myhost = '127.0.0.1:1340';
-    // var myhost = 'localhost.pickupmvp.com:1340';
-    initUrl += '?appOS=' + Platform.operatingSystem;
-    initUrl += '&paddingTop=' +
-        MediaQueryData.fromWindow(ui.window).padding.top.toString();
-    initUrl += '&paddingBottom=' +
-        MediaQueryData.fromWindow(ui.window).padding.bottom.toString();
-
-    print('loading url 2: ' + initUrl);
-    developer.log(initUrl);
 
     controller = WebViewController()
       ..loadRequest(
@@ -266,16 +244,22 @@ class _WebViewAppState extends State<WebViewApp> {
 
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
       if (message.data.containsKey("url")) {
-        initUrl = message.data["url"];
-        initUrl += '?appOS=' + Platform.operatingSystem;
-        initUrl += '&paddingTop=' +
-            MediaQueryData.fromWindow(ui.window).padding.top.toString();
-        initUrl += '&paddingBottom=' +
-            MediaQueryData.fromWindow(ui.window).padding.bottom.toString();
-
+        initUrl = buildInitUrl(message.data["url"]);
         controller.loadRequest(Uri.parse(initUrl));
       }
     });
+  }
+
+  buildInitUrl(baseUrl) {
+    var initUrl = baseUrl;
+    if (initUrl.contains('?')) initUrl += '&';
+    else initUrl += '?';
+    initUrl += 'appOS=' + Platform.operatingSystem;
+    initUrl += '&paddingTop=' +
+        MediaQueryData.fromWindow(ui.window).padding.top.toString();
+    initUrl += '&paddingBottom=' +
+        MediaQueryData.fromWindow(ui.window).padding.bottom.toString();
+    return initUrl;
   }
 
   @override

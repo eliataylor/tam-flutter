@@ -37,6 +37,7 @@ project.ext.envConfigFiles = [
         release: ".env",
         "rapruler": ".env.rapruler",
         "pickupmvp": ".env.pickupmvp",
+        "fantasyjams": ".env.fantasyjams",
         "trackauthoritymusic": ".env.tam",
 ]
 
