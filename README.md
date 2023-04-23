@@ -11,6 +11,14 @@
 - [ ] Load Exact url passed from Deep Link?
 - OnLoad WebView always adds query parameters `appPlatform` (for client controls), `paddingTop` & `paddingBottom` (for safearea).
 
+## Firebase Notification Test
+- Goto [Firebase Notification](https://console.firebase.google.com/u/0/project/trackauthoritymusic/messaging)
+- Click on New Campaign Button, and then click on notifications
+- Add notification title and text, click NEXT and select target devices.
+- Enter Schedule date and click on NEXT
+- Click NEXT on Conversion event
+- In the custom data, add key as "url" and value with the value you want the user to be redirected to.
+- Click Review and Publish.
 
 #### QUESTIONS:
 1. **What can the WebApp *not* do while running inside of WebView browser?** 
