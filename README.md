@@ -57,10 +57,12 @@
 
 
 ## To Add a Brand For Android:
+- edit `.env.[brand]` with correct firebase values from `google-services.json`
 - add config in `project.ext.envConfigFiles` of build.gradle
 - from /android folder: `ENVFILE=.env.[brand] ./gradlew assembleDebug`
 - create dedication /app/src/[brand]/res folder with icons
 - 
 ## To Add a Brand For ioS:
+- edit `.env.[brand]` with correct firebase values from `google-services.json`
 - create Schema from xCode, duplicate a config and change the env file brand. 
 - change pre-run script to use new env file
