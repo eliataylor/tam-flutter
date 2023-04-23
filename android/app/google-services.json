@@ -53,12 +53,20 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:364436864658:android:10b5ad041daf19e56e304b",
+        "mobilesdk_app_id": "1:364436864658:android:a23c13d20848223e6e304b",
         "android_client_info": {
-          "package_name": "com.tam"
+          "package_name": "com.therapruler"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "364436864658-85gksfqjog7im2cd4q0g3h8lh780kpta.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.therapruler",
+            "certificate_hash": "9872c232ddd28b45dd0ae5c074edd0db1182f838"
+          }
+        },
         {
           "client_id": "364436864658-j4jlglv2a4m3e8ojjtnubq7o103ej112.apps.googleusercontent.com",
           "client_type": 3
@@ -90,20 +98,12 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:364436864658:android:a23c13d20848223e6e304b",
+        "mobilesdk_app_id": "1:364436864658:android:ba1d75def70d748a6e304b",
         "android_client_info": {
-          "package_name": "com.therapruler"
+          "package_name": "com.trackauthoritymusic"
         }
       },
       "oauth_client": [
-        {
-          "client_id": "364436864658-85gksfqjog7im2cd4q0g3h8lh780kpta.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.therapruler",
-            "certificate_hash": "9872c232ddd28b45dd0ae5c074edd0db1182f838"
-          }
-        },
         {
           "client_id": "364436864658-j4jlglv2a4m3e8ojjtnubq7o103ej112.apps.googleusercontent.com",
           "client_type": 3
