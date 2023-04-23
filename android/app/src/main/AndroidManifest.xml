@@ -1,5 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.pickupmvp">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -56,5 +55,18 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+       <!-- A custom Android Notification Channel to deliver FCM notifications on a non-default channel -->
+       <meta-data
+           android:name="com.google.firebase.messaging.default_notification_channel_id"
+           android:value="high_importance_channel" />
+
+       <meta-data
+           android:name="firebase_messaging_auto_init_enabled"
+           android:value="false" />
+
+       <meta-data
+           android:name="firebase_analytics_collection_enabled"
+           android:value="false" />
     </application>
 </manifest>

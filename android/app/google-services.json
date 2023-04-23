@@ -1,0 +1,138 @@
+{
+  "project_info": {
+    "project_number": "364436864658",
+    "firebase_url": "https://trackauthoritymusic.firebaseio.com",
+    "project_id": "trackauthoritymusic",
+    "storage_bucket": "trackauthoritymusic.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:364436864658:android:cf8fa49572d902fc6e304b",
+        "android_client_info": {
+          "package_name": "com.pickupmvp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "364436864658-ta2m8u7d3g98trgddgjbei7h8an06ag4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pickupmvp",
+            "certificate_hash": "e361bdd11113909062313c324a2179a06a94c00d"
+          }
+        },
+        {
+          "client_id": "364436864658-j4jlglv2a4m3e8ojjtnubq7o103ej112.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB332_pe6xJNcLXIU9i4X6s-RXvMUFSdeM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "364436864658-j4jlglv2a4m3e8ojjtnubq7o103ej112.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "364436864658-9mttnpphnl7ul8sg8bochgg2jhk4dtnm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.therapruler",
+                "app_store_id": "6447277076"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:364436864658:android:a23c13d20848223e6e304b",
+        "android_client_info": {
+          "package_name": "com.therapruler"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "364436864658-85gksfqjog7im2cd4q0g3h8lh780kpta.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.therapruler",
+            "certificate_hash": "9872c232ddd28b45dd0ae5c074edd0db1182f838"
+          }
+        },
+        {
+          "client_id": "364436864658-j4jlglv2a4m3e8ojjtnubq7o103ej112.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB332_pe6xJNcLXIU9i4X6s-RXvMUFSdeM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "364436864658-j4jlglv2a4m3e8ojjtnubq7o103ej112.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "364436864658-9mttnpphnl7ul8sg8bochgg2jhk4dtnm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.therapruler",
+                "app_store_id": "6447277076"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:364436864658:android:ba1d75def70d748a6e304b",
+        "android_client_info": {
+          "package_name": "com.trackauthoritymusic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "364436864658-j4jlglv2a4m3e8ojjtnubq7o103ej112.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB332_pe6xJNcLXIU9i4X6s-RXvMUFSdeM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "364436864658-j4jlglv2a4m3e8ojjtnubq7o103ej112.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "364436864658-9mttnpphnl7ul8sg8bochgg2jhk4dtnm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.therapruler",
+                "app_store_id": "6447277076"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
