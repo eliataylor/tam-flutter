@@ -45,22 +45,27 @@ class _WebViewStackState extends State<WebViewStack> {
             developer.log('web view error!!! ');
           },
           onNavigationRequest: (NavigationRequest navigation) {
-            final host = Uri.parse(navigation.url).host;
+            final host = Uri
+                .parse(navigation.url)
+                .host;
             developer.log('navigating host ' + host);
-            if (!host.contains('youtube.com') &&
-                !host.contains('therapruler.com') &&
-                !host.contains('fantasytrackball.com') &&
-                !host.contains('rsoundtrack.com') &&
-                !host.contains('giftofmusic.app') &&
-                !host.contains('pickupmvp.com') &&
-                !host.contains('trackauthoritymusic.com')) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(
-                    'Blocking navigation to $host',
+            if (
+            host != 'youtube.com' &&
+            host != 'therapruler.com' &&
+            host != 'fantasytrackball.com' &&
+            host != 'rsoundtrack.com' &&
+            host != 'giftofmusic.app' &&
+            host != 'pickupmvp.com' &&
+            host != 'trackauthoritymusic.com') {
+              if (host == '') {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      'Blocking navigation to $host',
+                    ),
                   ),
-                ),
-              );
+                );
+              }
               return NavigationDecision.prevent;
             }
             return NavigationDecision.navigate;

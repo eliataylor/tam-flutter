@@ -1,9 +1,17 @@
 # TAM Flutter
 #### Basic WebView wrapper for all TAM Groups
 
-# Building
+# Android Test install: 
+- https://play.google.com/apps/internaltest/4700937001191384768
+
+# Build to Debug
 - simply replace the contents of `.env` with the .env.[brand] you want to build
 - then `flutter run` or `flutter run --release`
+
+# Build to Release
+- `flutter build appbundle --flavor trackauthoritymusic`
+- `flutter build appbundle --flavor pickupmvp`
+- `flutter build appbundle --flavor rapruler`
 
 ## Launching Options
 - [x] Load startup Url embedded from .env when built  
