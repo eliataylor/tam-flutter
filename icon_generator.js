@@ -105,7 +105,7 @@ function buildAll(appName, size, bgColor) {
     buildiOSIcons(appName, bgColor);
     buildAndroidIcons(appName, bgColor);
     buildiOSLaunchScreens(appName, bgColor);
-    buildiOSScreenshots(appName, size, bgColor);
+    // buildiOSScreenshots(appName, size, bgColor);
 }
 
 

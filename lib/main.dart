@@ -202,9 +202,9 @@ class _WebViewAppState extends State<WebViewApp> {
     const String flavor = String.fromEnvironment('app.flavor');
     developer.log('running flavor: ' + flavor);
 
-    var myhost = FlutterConfig.get('CLIENT_HOST');
-    // var myhost = '127.0.0.1:1340';
+    // var myhost = FlutterConfig.get('CLIENT_HOST');
     // var myhost = 'localhost.pickupmvp.com:1340';
+    var myhost = '192.168.0.19:1337';
     var appID = FlutterConfig.get("APP_ID");
     var initUrl = 'https://' + myhost;
     initUrl = buildInitUrl(initUrl);
