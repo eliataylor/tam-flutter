@@ -1,23 +1,19 @@
 // Copyright 2023 @ TrackAuthorityMusic.com
 
 import 'dart:developer' as developer;
-// import 'dart:io' show Platform;
-import 'dart:ui' as ui;
-import 'dart:io';
-
 
 import 'package:TrackAuthorityMusic/firebase_options.dart';
-import 'package:app_links/app_links.dart';
+import 'package:TrackAuthorityMusic/services/notification_service.dart';
+import 'package:TrackAuthorityMusic/services/url_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_config/flutter_config.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:get_it/get_it.dart';
+
 import 'src/web_view_stack.dart';
 
-final _appLinks = AppLinks();
+final serviceLocator = GetIt.instance;
 
 @pragma('vm:entry-point')
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
@@ -25,11 +21,25 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  await setupFlutterNotifications();
-  showFlutterNotification(message);
-  // If you're going to use other Firebase services in the background, such as Firestore,
-  // make sure you call `initializeApp` before using other Firebase services.
+  NotificationService notificationService =
+      serviceLocator.get<NotificationService>();
+
+  await notificationService.setupFlutterNotifications();
+  notificationService.showFlutterNotification(message);
   developer.log('Handling a background message ${message.messageId}');
+}
+
+void setUp() {
+  serviceLocator.registerSingletonAsync<UrlService>(() async {
+    final urlService = UrlService();
+    await urlService.init();
+    return urlService;
+  });
+  serviceLocator.registerSingletonAsync<NotificationService>(() async {
+    final notificationService = NotificationService();
+    await notificationService.init();
+    return notificationService;
+  });
 }
 
 void main() async {
@@ -38,17 +48,14 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  setUp();
 
   // Set the background messaging handler early on, as a named top-level function
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
-  if (!kIsWeb) {
-    await setupFlutterNotifications();
-  }
-
-  if (kDebugMode) {
-    HttpOverrides.global = MyHttpOverrides();
-  }
+  // if (kDebugMode) {
+  //   HttpOverrides.global = MyHttpOverrides();
+  // }
 
   runApp(
     MaterialApp(
@@ -59,66 +66,6 @@ void main() async {
   );
 }
 
-AndroidNotificationChannel? channel;
-
-/// Initialize the [FlutterLocalNotificationsPlugin] package.
-late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
-
-bool isFlutterLocalNotificationsInitialized = false;
-
-Future<void> setupFlutterNotifications() async {
-  if (isFlutterLocalNotificationsInitialized) {
-    return;
-  }
-  channel = const AndroidNotificationChannel(
-    'default_notification_channel_id', // id
-    'High Importance Notifications', // title
-    description:
-        'This channel is used for important notifications.', // description
-    importance: Importance.high,
-  );
-
-  flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
-
-  /// Create an Android Notification Channel.
-  ///
-  /// We use this channel in the `AndroidManifest.xml` file to override the
-  /// default FCM channel to enable heads up notifications.
-  await flutterLocalNotificationsPlugin
-      .resolvePlatformSpecificImplementation<
-          AndroidFlutterLocalNotificationsPlugin>()
-      ?.createNotificationChannel(channel!);
-
-  /// Update the iOS foreground notification presentation options to allow
-  /// heads up notifications.
-  await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
-    alert: true,
-    badge: true,
-    sound: true,
-  );
-  isFlutterLocalNotificationsInitialized = true;
-}
-
-void showFlutterNotification(RemoteMessage message) {
-  RemoteNotification? notification = message.notification;
-  AndroidNotification? android = message.notification?.android;
-  if (notification != null && android != null && !kIsWeb) {
-    flutterLocalNotificationsPlugin.show(
-      notification.hashCode,
-      notification.title,
-      notification.body,
-      NotificationDetails(
-        android: AndroidNotificationDetails(
-          channel!.id,
-          channel!.name,
-          channelDescription: channel!.description,
-          icon: 'ic_launcher',
-        ),
-      ),
-    );
-  }
-}
-
 class WebViewApp extends StatefulWidget {
   const WebViewApp({super.key});
 
@@ -127,173 +74,23 @@ class WebViewApp extends StatefulWidget {
 }
 
 class _WebViewAppState extends State<WebViewApp> {
-  late final WebViewController controller;
-
-  String? _token;
-  String? initialMessage;
-  bool _resolved = false;
-  late Stream<String> _tokenStream;
-  bool _notificationsEnabled = false;
-
-  void setToken(String? token) {
-    developer.log('FCM Token: $token');
-    setState(() {
-      _token = token;
-    });
-  }
-
-  Future<void> _isAndroidPermissionGranted() async {
-    if (Platform.isAndroid) {
-      final bool granted = await flutterLocalNotificationsPlugin
-              .resolvePlatformSpecificImplementation<
-                  AndroidFlutterLocalNotificationsPlugin>()
-              ?.areNotificationsEnabled() ??
-          false;
-
-      setState(() {
-        _notificationsEnabled = granted;
-      });
-    }
-  }
-
-  Future<void> _requestPermissions() async {
-    if (Platform.isIOS || Platform.isMacOS) {
-      await FirebaseMessaging.instance.requestPermission(
-        sound: true,
-        badge: true,
-        alert: true,
-        provisional: false,
-      );
-
-      await flutterLocalNotificationsPlugin
-          .resolvePlatformSpecificImplementation<
-              IOSFlutterLocalNotificationsPlugin>()
-          ?.requestPermissions(
-            alert: true,
-            badge: true,
-            sound: true,
-          );
-      await flutterLocalNotificationsPlugin
-          .resolvePlatformSpecificImplementation<
-              MacOSFlutterLocalNotificationsPlugin>()
-          ?.requestPermissions(
-            alert: true,
-            badge: true,
-            sound: true,
-          );
-    } else if (Platform.isAndroid) {
-      final AndroidFlutterLocalNotificationsPlugin? androidImplementation =
-          flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<
-              AndroidFlutterLocalNotificationsPlugin>();
-
-      final bool? granted = await androidImplementation?.requestPermission();
-      setState(() {
-        _notificationsEnabled = granted ?? false;
-      });
-    }
-  }
-
   @override
   void initState() {
     super.initState();
-    _isAndroidPermissionGranted();
-    _requestPermissions();
-
-    /*
-    const MethodChannel('flavor').invokeMethod<String>('getFlavor').then((String? flavor) {
-      setState(() {
-        _flavor = flavor;
-      });
-    });
-    */
-
-    const String flavor = const String.fromEnvironment('flavor');
-    developer.log('running flavor: ' + flavor);
-
-    var myhost = FlutterConfig.get('CLIENT_HOST');
-    if (kDebugMode) {
-      var port = '1337'; // tam
-      if (flavor == 'pickupmvp')  port = '1340';
-      else if (flavor == 'rapruler')  port = '1339';
-      myhost = '192.168.0.19:' + port;
-    }
-    var appID = FlutterConfig.get("APP_ID");
-    var initUrl = 'https://' + myhost;
-    initUrl = buildInitUrl(initUrl);
-    developer.log('loading startup url: ' + initUrl);
-
-    controller = WebViewController()
-      ..loadRequest(
-        Uri.parse(initUrl),
-      );
-
-    _appLinks.allUriLinkStream.listen((uri) {
-      developer.log('allUriLinkStream ' + uri.toString());
-      if (uri.toString().contains("app://$appID")) {
-        uri = Uri.parse(uri
-            .toString()
-            .replaceAll("app://$appID", 'https://' + myhost)
-            .replaceFirst("?", ""));
-      }
-
-      initUrl = uri.toString();
-      initUrl = buildInitUrl(initUrl);
-
-      controller.loadRequest(Uri.parse(initUrl));
-    });
-
-    FirebaseMessaging.instance.getInitialMessage().then(
-          (value) => setState(
-            () {
-              _resolved = true;
-              initialMessage = value?.data.toString();
-            },
-          ),
-        );
-
-    FirebaseMessaging.instance.getToken().then(setToken);
-    _tokenStream = FirebaseMessaging.instance.onTokenRefresh;
-    _tokenStream.listen(setToken);
-
-    FirebaseMessaging.onMessage.listen(showFlutterNotification);
-
-    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      if (message.data.containsKey("url")) {
-        initUrl = buildInitUrl(message.data["url"]);
-        controller.loadRequest(Uri.parse(initUrl));
-      }
-    });
-  }
-
-  buildInitUrl(baseUrl) {
-    var initUrl = baseUrl;
-    if (initUrl.contains('?')) initUrl += '&';
-    else initUrl += '?';
-    initUrl += 'appOS=' + Platform.operatingSystem;
-    initUrl += '&paddingTop=' +
-        MediaQueryData.fromWindow(ui.window).padding.top.toString();
-    initUrl += '&paddingBottom=' +
-        MediaQueryData.fromWindow(ui.window).padding.bottom.toString();
-    return initUrl;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      body: WebViewStack(controller: controller),
+      body: FutureBuilder(
+          future: serviceLocator.allReady(),
+          builder: (BuildContext context, AsyncSnapshot snapshot) {
+            if (snapshot.hasData) {
+              return const WebViewStack();
+            } else {
+              return const CircularProgressIndicator();
+            }
+          }),
     );
-  }
-
-
-}
-
-class MyHttpOverrides extends HttpOverrides {
-  @override
-  HttpClient createHttpClient(SecurityContext? context) {
-    final client = super.createHttpClient(context);
-    client.badCertificateCallback =
-        (X509Certificate cert, String host, int port) => true;
-    return client;
   }
 }
