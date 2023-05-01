@@ -1,8 +1,10 @@
 // Copyright 2023 @ TrackAuthorityMusic.com
 
 import 'dart:developer' as developer;
-import 'dart:io' show Platform;
+// import 'dart:io' show Platform;
 import 'dart:ui' as ui;
+import 'dart:io';
+
 
 import 'package:TrackAuthorityMusic/firebase_options.dart';
 import 'package:app_links/app_links.dart';
@@ -42,6 +44,10 @@ void main() async {
 
   if (!kIsWeb) {
     await setupFlutterNotifications();
+  }
+
+  if (kDebugMode) {
+    HttpOverrides.global = MyHttpOverrides();
   }
 
   runApp(
@@ -122,13 +128,12 @@ class WebViewApp extends StatefulWidget {
 
 class _WebViewAppState extends State<WebViewApp> {
   late final WebViewController controller;
+
   String? _token;
   String? initialMessage;
   bool _resolved = false;
   late Stream<String> _tokenStream;
   bool _notificationsEnabled = false;
-
-  // String? _flavor;
 
   void setToken(String? token) {
     developer.log('FCM Token: $token');
@@ -193,22 +198,34 @@ class _WebViewAppState extends State<WebViewApp> {
     super.initState();
     _isAndroidPermissionGranted();
     _requestPermissions();
-    /* const MethodChannel('flavor').invokeMethod<String>('getFlavor').then((String? flavor) {
+
+    /*
+    const MethodChannel('flavor').invokeMethod<String>('getFlavor').then((String? flavor) {
       setState(() {
         _flavor = flavor;
       });
     });
-     */
-    const String flavor = String.fromEnvironment('app.flavor');
+    */
+
+    const String flavor = const String.fromEnvironment('flavor');
     developer.log('running flavor: ' + flavor);
 
-    // var myhost = FlutterConfig.get('CLIENT_HOST');
-    // var myhost = 'localhost.pickupmvp.com:1340';
-    var myhost = '192.168.0.19:1337';
+    var myhost = FlutterConfig.get('CLIENT_HOST');
+    if (kDebugMode) {
+      var port = '1337'; // tam
+      if (flavor == 'pickupmvp')  port = '1340';
+      else if (flavor == 'rapruler')  port = '1339';
+      myhost = '192.168.0.19:' + port;
+    }
     var appID = FlutterConfig.get("APP_ID");
     var initUrl = 'https://' + myhost;
     initUrl = buildInitUrl(initUrl);
     developer.log('loading startup url: ' + initUrl);
+
+    controller = WebViewController()
+      ..loadRequest(
+        Uri.parse(initUrl),
+      );
 
     _appLinks.allUriLinkStream.listen((uri) {
       developer.log('allUriLinkStream ' + uri.toString());
@@ -224,11 +241,6 @@ class _WebViewAppState extends State<WebViewApp> {
 
       controller.loadRequest(Uri.parse(initUrl));
     });
-
-    controller = WebViewController()
-      ..loadRequest(
-        Uri.parse(initUrl),
-      );
 
     FirebaseMessaging.instance.getInitialMessage().then(
           (value) => setState(
@@ -268,36 +280,20 @@ class _WebViewAppState extends State<WebViewApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /*
-      appBar: AppBar(
-        title: const Text('PickupMVP'),
-        actions: [
-          // NavigationControls(controller: controller),
-          Menu(controller: controller),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Add your onPressed code here!
-        },
-        backgroundColor: Colors.green,
-        child: Menu(controller: controller),
-      ),
-       */
+
       body: WebViewStack(controller: controller),
     );
   }
 
-/*
-  final router = GoRouter(
-    routes: [
-      GoRoute(
-        path: '/',
-        /* builder: (_, __) => Scaffold(
-          appBar: WebViewStack(controller: controller),
-        ) */
-      ),
-    ],
-  );
-   */
+
+}
+
+class MyHttpOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext? context) {
+    final client = super.createHttpClient(context);
+    client.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    return client;
+  }
 }

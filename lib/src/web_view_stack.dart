@@ -5,11 +5,13 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:developer' as developer;
+import 'package:flutter/foundation.dart';
 
 class WebViewStack extends StatefulWidget {
   const WebViewStack({required this.controller, super.key});
 
   final WebViewController controller;
+
 
   @override
   State<WebViewStack> createState() => _WebViewStackState();
@@ -42,26 +44,39 @@ class _WebViewStackState extends State<WebViewStack> {
             });
           },
           onWebResourceError: (WebResourceError error) {
-            developer.log('web view error!!! ');
+            developer.log('Error code: ${error.errorCode}');
+            developer.log('Description: ${error.description}');
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text(error.description)));
           },
           onNavigationRequest: (NavigationRequest navigation) {
-            final host = Uri
-                .parse(navigation.url)
-                .host;
+            final host = Uri.parse(navigation.url).host;
             developer.log('navigating host ' + host);
-            if (
-            host != 'youtube.com' &&
-            host != 'therapruler.com' &&
-            host != 'fantasytrackball.com' &&
-            host != 'rsoundtrack.com' &&
-            host != 'giftofmusic.app' &&
-            host != 'pickupmvp.com' &&
-            host != 'trackauthoritymusic.com') {
-              if (host == '') {
+            final allowedDomains = [
+              'youtube.com',
+              'therapruler.com',
+              'fantasytrackball.com',
+              'rsoundtrack.com',
+              'giftofmusic.app',
+              'pickupmvp.com',
+              'trackauthoritymusic.com'
+            ];
+            if (kDebugMode) {
+              allowedDomains.add('192.168.0.19');
+            }
+            if (!allowedDomains.contains(host)) {
+              if (host != '') {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(
                       'Blocking navigation to $host',
+                    ),
+                    behavior: SnackBarBehavior.floating,
+                    action: SnackBarAction(
+                      label: 'Dismiss',
+                      onPressed: () {
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                      },
                     ),
                   ),
                 );
@@ -76,13 +91,20 @@ class _WebViewStackState extends State<WebViewStack> {
       ..addJavaScriptChannel(
         'SnackBar',
         onMessageReceived: (message) {
-          ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text(message.message)));
+          developer.log('failed loading ' + message.message);
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(message.message),
+            behavior: SnackBarBehavior.fixed,
+            action: SnackBarAction(
+              label: 'Dismiss',
+              onPressed: () {
+                ScaffoldMessenger.of(context).hideCurrentSnackBar();
+              },
+            ),
+          ));
         },
       );
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -92,9 +114,7 @@ class _WebViewStackState extends State<WebViewStack> {
           LinearProgressIndicator(
             value: loadingPercentage / 100.0,
           ),
-        WebViewWidget(
-          controller: widget.controller,
-        ),
+        WebViewWidget(controller: widget.controller),
       ],
     );
   }
