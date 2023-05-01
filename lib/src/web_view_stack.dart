@@ -183,6 +183,11 @@ class _WebViewStackState extends State<WebViewStack> {
             return ServerTrustAuthResponse(
                 action: ServerTrustAuthResponseAction.PROCEED);
           },
+          onConsoleMessage: (controller, messages) {
+            developer.log(
+                '[IN_APP_BROWSER_LOG_LEVEL]: ${messages.messageLevel.toString()}');
+            developer.log('[IN_APP_BROWSER_MESSAGE]: ${messages.message}');
+          },
           onProgressChanged: (controller, progress) {
             if (progress == 100) {}
             setState(() {
