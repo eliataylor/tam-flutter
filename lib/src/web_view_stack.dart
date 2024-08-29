@@ -125,7 +125,8 @@ class _WebViewStackState extends State<WebViewStack> {
                 'rsoundtrack.com',
                 'giftofmusic.app',
                 'pickupmvp.com',
-                'trackauthoritymusic.com'
+                'trackauthoritymusic.com',
+                'djmote.com',
               ];
               if (kDebugMode) {
                 allowedDomains.add('192.168.0.19');

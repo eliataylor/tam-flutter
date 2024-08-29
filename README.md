@@ -12,6 +12,7 @@
 - `flutter build appbundle --flavor trackauthoritymusic`
 - `flutter build appbundle --flavor pickupmvp`
 - `flutter build appbundle --flavor rapruler`
+- `flutter build appbundle --flavor djmote`
 
 ## Launching Options
 - [x] Load startup Url embedded from .env when built  

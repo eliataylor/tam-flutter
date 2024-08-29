@@ -121,9 +121,11 @@ function buildAll(appName, size, bgColor) {
     // buildiOSScreenshots(appName, size, bgColor);
 }
 
-
+// resizeScreenshots('pickupmvp', '1290x2796', '#211645');
 // resizeScreenshots('pickupmvp', '2048x2732', '#211645');
-resizeScreenshots('pickupmvp', '1284x2778', '#211645');
+// resizeScreenshots('pickupmvp', '1284x2778', '#211645');
 // buildAll('trackauthoritymusic', '1125x2436', '#000000');
 // buildAll('rapruler', '1125x2436', '#202020');
 // buildAll('pickupmvp', '640x1136', '#211645');
+buildAll('pickupmvp', '640x1136', '#192E18');
+
