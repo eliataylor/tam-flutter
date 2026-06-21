@@ -1,20 +1,34 @@
 import 'dart:io';
-import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 
 class UrlUtils {
-  static buildInitUrl(baseUrl) {
+  static Map<String, dynamic> nativeInsetsPayload(EdgeInsets padding) {
+    return {
+      'appOS': Platform.operatingSystem,
+      'paddingTop': padding.top,
+      'paddingBottom': padding.bottom,
+      'paddingLeft': padding.left,
+      'paddingRight': padding.right,
+    };
+  }
+
+  static String buildInitUrl(
+    String baseUrl, {
+    EdgeInsets padding = EdgeInsets.zero,
+  }) {
+    final insets = nativeInsetsPayload(padding);
     var initUrl = baseUrl;
-    if (initUrl.contains('?'))
+    if (initUrl.contains('?')) {
       initUrl += '&';
-    else
+    } else {
       initUrl += '?';
-    initUrl += 'appOS=' + Platform.operatingSystem;
-    initUrl += '&paddingTop=' +
-        MediaQueryData.fromWindow(ui.window).padding.top.toString();
-    initUrl += '&paddingBottom=' +
-        MediaQueryData.fromWindow(ui.window).padding.bottom.toString();
+    }
+    initUrl += 'appOS=${insets['appOS']}';
+    initUrl += '&paddingTop=${insets['paddingTop']}';
+    initUrl += '&paddingBottom=${insets['paddingBottom']}';
+    initUrl += '&paddingLeft=${insets['paddingLeft']}';
+    initUrl += '&paddingRight=${insets['paddingRight']}';
     return initUrl;
   }
 }

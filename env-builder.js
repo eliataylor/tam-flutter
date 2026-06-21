@@ -11,6 +11,7 @@ appCredentials.forEach((brand) => {
     const env = `APP_PACKAGE_ID=com.${brand.env.REACT_APP_TACLIENT_DIR}
 APP_ID=${brand.env.REACT_APP_TACLIENT_DIR}
 CLIENT_HOST=${myurl.host}
+CLIENT_HOST_DEBUG=192.168.0.19:1337
 TAM_GID=${brand.gid}
 APP_NAME=${brand.env.REACT_APP_NAME}
 VERSION_CODE=2

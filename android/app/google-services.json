@@ -132,6 +132,35 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:364436864658:android:smsp000000000000000000",
+        "android_client_info": {
+          "package_name": "com.smsp.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "364436864658-j4jlglv2a4m3e8ojjtnubq7o103ej112.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB332_pe6xJNcLXIU9i4X6s-RXvMUFSdeM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "364436864658-j4jlglv2a4m3e8ojjtnubq7o103ej112.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"

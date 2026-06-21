@@ -2,13 +2,13 @@
 
 import 'dart:developer' as developer;
 
+import 'package:TrackAuthorityMusic/config/env_config.dart';
 import 'package:TrackAuthorityMusic/firebase_options.dart';
 import 'package:TrackAuthorityMusic/services/notification_service.dart';
 import 'package:TrackAuthorityMusic/services/url_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_config/flutter_config.dart';
 import 'package:get_it/get_it.dart';
 
 import 'src/web_view_stack.dart';
@@ -43,8 +43,8 @@ void setUp() {
 }
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // Required by FlutterConfig
-  await FlutterConfig.loadEnvVariables();
+  WidgetsFlutterBinding.ensureInitialized();
+  await loadEnvForFlavor();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

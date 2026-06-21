@@ -6,21 +6,28 @@
       "request": "launch",
       "type": "dart",
       "program": "lib/main.dart",
-      "args": ["--flavor", "pickupmvp", "--target", "lib/main.dart" ]
+      "args": ["--flavor", "pickupmvp", "--dart-define=FLAVOR=pickupmvp"]
     },
     {
       "name": "rapruler",
       "request": "launch",
       "type": "dart",
       "program": "lib/main.dart",
-      "args": ["--flavor", "rapruler", "--target", "lib/main.dart" ]
+      "args": ["--flavor", "rapruler", "--dart-define=FLAVOR=rapruler"]
     },
     {
       "name": "tam",
       "request": "launch",
       "type": "dart",
       "program": "lib/main.dart",
-      "args": ["--flavor", "tam", "--target", "lib/main.dart" ]
+      "args": ["--flavor", "trackauthoritymusic", "--dart-define=FLAVOR=trackauthoritymusic"]
+    },
+    {
+      "name": "smsp",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "args": ["--flavor", "smsp", "--dart-define=FLAVOR=smsp"]
     }
   ],
   "compounds": []

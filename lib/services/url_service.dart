@@ -1,32 +1,20 @@
-import 'dart:developer' as developer;
-
-import 'package:TrackAuthorityMusic/utils/url_utils.dart';
+import 'package:TrackAuthorityMusic/config/env_config.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_config/flutter_config.dart';
 
 class UrlService {
   late String appID;
-  late String initUrl;
+  late String baseUrl;
   late String myHost;
-  late String port;
 
-  init() {
-    const String flavor = String.fromEnvironment('flavor');
-    developer.log('running flavor: $flavor');
-
-    myHost = FlutterConfig.get('CLIENT_HOST');
-    if (kDebugMode) {
-      port = '1337';
-      if (flavor == 'pickupmvp') {
-        port = '1340';
-      } else if (flavor == 'rapruler') {
-        port = '1339';
-      }
-      myHost = '192.168.0.19:$port';
+  Future<void> init() async {
+    const String flavor = String.fromEnvironment('FLAVOR');
+    if (kDebugMode && flavor.isNotEmpty) {
+      // ignore: avoid_print
+      print('running flavor: $flavor');
     }
-    appID = FlutterConfig.get("APP_ID");
-    initUrl = 'https://$myHost';
-    initUrl = UrlUtils.buildInitUrl(initUrl);
-    developer.log('loading startup url: $initUrl');
+
+    myHost = kDebugMode ? env('CLIENT_HOST_DEBUG') : env('CLIENT_HOST');
+    appID = env('APP_ID');
+    baseUrl = 'https://$myHost';
   }
 }

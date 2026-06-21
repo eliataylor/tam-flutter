@@ -57,6 +57,7 @@ function buildAndroidIcons(appName, bgColor) {
     for(let dir in imgDirs) {
          let percent = (imgDirs[dir] * 100);
          let dest_dir = base_dir + dir;
+         fs.mkdirSync(dest_dir, { recursive: true });
          let cmd = `convert -density 96 ${src_icon} -background '${bgColor}' -alpha remove -alpha off -resize ${percent}% "${dest_dir}/ic_launcher.png"`
          if (percent === 100) {
              cmd = `cp ${src_icon} ${dest_dir}/ic_launcher.png`
@@ -123,7 +124,8 @@ function buildAll(appName, size, bgColor) {
 
 
 // resizeScreenshots('pickupmvp', '2048x2732', '#211645');
-resizeScreenshots('pickupmvp', '1284x2778', '#211645');
+// resizeScreenshots('smsp', '1284x2778', '#211645');
 // buildAll('trackauthoritymusic', '1125x2436', '#000000');
 // buildAll('rapruler', '1125x2436', '#202020');
 // buildAll('pickupmvp', '640x1136', '#211645');
+buildAll('smsp', '1284x2778', '#ffffff');
